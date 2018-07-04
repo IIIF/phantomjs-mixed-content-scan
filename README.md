@@ -1,6 +1,6 @@
 # Report mixed content on web pages using PhantomJS
 
-Script edited [acdha][https://github.com/acdha/phantomjs-mixed-content-scan].
+Script edited [acdha](https://github.com/acdha/phantomjs-mixed-content-scan).
 
 This script is intended to be added to a travis build to check static jekyll generated HTML for possible mixed content warnings.
 
