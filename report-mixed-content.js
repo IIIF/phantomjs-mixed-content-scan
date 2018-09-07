@@ -1,4 +1,4 @@
-#!/usr/bin/env phantomjs --disk-cache=true --ignore-ssl-errors=false --load-images=true --output-encoding=utf-8
+#!/usr/bin/env phantomjs --web-security=false --disk-cache=true --ignore-ssl-errors=false --load-images=true --output-encoding=utf-8 
 'use strict';
 
 var system = require('system'),
@@ -43,7 +43,7 @@ function initPage() {
 
     page.onConsoleMessage = function(msg) {
         if (msg == 'GOTO_NEXT_PAGE') {
-            //page.close();
+            page.close();
             //crawlNextPage();
         } else if (msg.indexOf('insecure content from') >= 0) {
             // We can format WebKit's native error messages nicely:
@@ -63,6 +63,7 @@ function crawlNextPage() {
     }
 
     var url = URLs.shift();
+    console.log('Checking ' + url);
     var page = initPage();
 
     page.originalURL = url;
